@@ -1,4 +1,4 @@
-const { mod12, mod60, polarity, opposite, duo} = require("../basics")
+const { mod12, mod60, polarity, opposite, duo} = require("../functions")
 
 describe("mod12", () => {
   test("returns number mod 12", () => {
