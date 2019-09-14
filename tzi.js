@@ -5,13 +5,15 @@ const { seniority,
         order, 
         animals,
         animal,
-        polarity, 
+        polarity,
+        name,
         opposite, 
-        duo} = require("./functions")
+        duo,
+        trine} = require("./functions")
 
 class tzi {
-  static get elements() { return elements() }
-  static get animals() { return animals() }
+  static get elements() { return elements }
+  static get animals() { return animals }
   constructor(int) {
     this.natural = int
     this.seniority = seniority(int)
@@ -19,17 +21,13 @@ class tzi {
     this.element = element(int)
     this.order = order(int)
     this.animal = animal(int)
-    this.name = this.element + " " + this.animal
+    this.name = name(int)
     this.polarity = polarity(int)
-    this.opposite = (this.seniority + 30) % 60
-    this.duo = this.seniority % 2 === 0
-      ? this.seniority - 1
-      : this.seniority + 1
+    this.opposite = opposite(int)
+    this.duo = duo(int)
   }
-  trine(int) {
-    return int === this.order + 4 
-                      || int === this.order - 4 
-                      ? true : false
+  trine(num) {
+    return trine(this.seniority, num)
   }
   square(int) {
     return int === this.order + 3 

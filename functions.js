@@ -1,18 +1,19 @@
 
-const mod12 = n => n % 12
-const mod60 = n => n % 60
-const seniority = n => Math.abs(n % 60)
-const elementOrder = n => Math.ceil(seniority(n % 60) % 10 / 2)
-const elements = () => ['wood', 'fire', 'earth', 'metal', 'water']
-const order = n => seniority(n) % 12
-const animals = () => ['rat', 'ox', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'rooster', 'dog', 'pig']
-const animal = n => animals(order(n) - 1)
-const element = n => elements()[Math.ceil(Math.abs(n % 60) % 10 / 2) - 1]
-const polarity = n => n % 2 === 0 ? 0 : 1
+const mod = n => i => i % n
+const seniority = n => Math.abs(mod(60)(n))
+const elementOrder = n => Math.ceil(mod(10)(seniority(n)) / 2)
+const elements = ['wood', 'fire', 'earth', 'metal', 'water']
+const element = n => elements[elementOrder(n) - 1]
+const order = n => mod(12)(seniority(n))
+const animals = ['rat', 'ox', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'rooster', 'dog', 'pig']
+const animal = n => animals[order(n) - 1]
+const name = n => element(n) + " " + animal(n)
+const polarity = n => mod(2)(n)
+const opposite = n => seniority(n + 30)
+const duo = n => n % 2 === 0 ? n - 1 : n + 1
+const trine = (n, i) => order(n) === order(i) + 4 || order(n) === order(i) - 4 
 
 module.exports = {
-  mod12: mod12,
-  mod60: mod60,
   seniority: seniority,
   elementOrder: elementOrder,
   elements: elements,
@@ -21,6 +22,8 @@ module.exports = {
   animals: animals,
   animal: animal,
   polarity: polarity,
-  opposite: (n, cb) => cb? cb(n) + cb(30) : n + 30,
-  duo: n => n % 2 === 0 ? n - 1 : n + 1
+  opposite: opposite,
+  name: name,
+  duo: duo,
+  trine: trine
 }
