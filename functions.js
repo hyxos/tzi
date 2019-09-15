@@ -12,18 +12,23 @@ const numberString = n => seniority(n) < 10 ? "0" + String(n) : String(n)
 const polarity = n => mod(2)(n)
 const opposite = (n, mod) => mod === 12 ? order(order(n) +6) : seniority(n + 30)
 const duo = n => mod(2)(seniority(n)) === 0 ? seniority(n) - 1 : seniority(n) + 1
-const trines = n => rangeArray(1, 15).reduce((p, i) => 
-                                        mod(3)(i) !== 0 
-                                        ? [...p, numberString(seniority(n + i * 4))] 
-                                        : [...p], [])
-                                      .sort().map(i => Number(i))
-const squares = n => rangeArray(1, 20).reduce((p, i) => 
-                                        mod(4)(i) !== 0 
-                                        ? [...p, numberString(seniority(n + i * 3))] 
-                                        : [...p], [])
-                                      .sort().map(i => Number(i))
+const trines = n => 
+  rangeArray(1, 15).reduce((p, i) => 
+    mod(3)(i) !== 0 
+    ? [...p, numberString(seniority(n + i * 4))] 
+    : [...p], [])
+    .sort().map(i => Number(i)
+  )
+const squares = n => 
+  rangeArray(1, 20).reduce((p, i) => 
+    mod(4)(i) !== 0 
+    ? [...p, numberString(seniority(n + i * 3))] 
+    : [...p], [])
+    .sort().map(i => Number(i)
+  )
 const isTrine = (i, n) => trines(i).includes(seniority(n))
 const isSquare = (i, n) => squares(i).includes(seniority(n))
+const isKind = (i, n) => order(i) === order(n)
 const yin = n => !Boolean(polarity(n))
 const yang = n => Boolean(polarity(n))
 const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0
@@ -46,5 +51,6 @@ module.exports = {
   numberString: numberString,
   isTrine: isTrine,
   squares: squares,
-  isSquare: isSquare
+  isSquare: isSquare,
+  isKind: isKind
 }

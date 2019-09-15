@@ -1,4 +1,13 @@
-const { polarity, trines, isTrine, squares, isSquare, opposite, duo} = require("../functions")
+const { 
+  polarity, 
+  trines, 
+  isTrine,
+  squares,
+  isSquare,
+  isKind,
+  opposite,
+  duo
+} = require("../functions")
 
 describe("polarity", () => {
   it("returns polarity 0 for evens and 1 for odds", () => {
@@ -21,17 +30,17 @@ describe("trines", () => {
   )
 })
 
-describe("isTrine", () => {
-  it("returns true if n is in trine, otherwise false", () => {
-    expect(isTrine(9, 13)).toBe(true)
-    expect(isTrine(1, 60)).toBe(false)
+describe("squares", () => {
+  it("returns an array of all the squares for n", () => {
+    expect(squares(4).length).toBe(15)
   }
   )
 })
 
-describe("squares", () => {
-  it("returns an array of all the squares for n", () => {
-    expect(squares(4).length).toBe(15)
+describe("isTrine", () => {
+  it("returns true if n is in trine, otherwise false", () => {
+    expect(isTrine(9, 13)).toBe(true)
+    expect(isTrine(1, 60)).toBe(false)
   }
   )
 })
@@ -43,5 +52,12 @@ describe("isSquare", () => {
     expect(isSquare(17, 11)).toBe(true)
   }
   )
+})
+
+describe("isKind", () => {
+  it("returns true if n is same order as i, otherwise false", () => {
+    expect(isKind(1, 25)).toBe(true)
+    expect(isKind(2, 4)).toBe(false)
+  })
 })
 
