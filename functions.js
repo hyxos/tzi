@@ -1,4 +1,4 @@
-const { elements, animals, range, Tau } = require('./constants')
+const { elements, animals, Tau } = require('./constants')
 
 const mod = n => i => i % n
 const seniority = n => mod(60)(n) !== 0 ? Math.abs(mod(60)(n)) : 60
@@ -19,10 +19,8 @@ const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0
 module.exports = {
   seniority: seniority,
   elementOrder: elementOrder,
-  elements: elements,
   element: element,
   order: order,
-  animals: animals,
   animal: animal,
   polarity: polarity,
   opposite: opposite,
@@ -31,6 +29,5 @@ module.exports = {
   trine: trine,
   yin: yin,
   yang: yang,
-  range: range,
   tau: tau
 }

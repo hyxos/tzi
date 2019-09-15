@@ -1,25 +1,32 @@
-const { seniority, 
-        elementOrder, 
-        elements, 
-        element,
-        order, 
-        animals,
-        animal,
-        polarity,
-        name,
-        opposite, 
-        duo,
-        trine,
-        yin,
-        yang,
-        range,
-        tau
-      } = require("./functions")
+const { 
+  seniority, 
+  elementOrder, 
+  element,
+  order, 
+  animal,
+  polarity,
+  name,
+  opposite, 
+  duo,
+  trine,
+  yin,
+  yang,
+  tau,
+} = require("./functions")
+
+const {
+  animals,
+  elements, 
+  range,
+  Tau
+} = require("./constants")
 
 class Tzi {
   static get elements() { return elements }
   static get animals() { return animals }
   static get range() { return range }
+  static get Tau() { return Tau }
+  static get deck() { return Tzi.range.map(i => new Tzi(i)) }
   constructor(int) {
     this.name = name(int)
     this.natural = int
@@ -35,6 +42,7 @@ class Tzi {
     this.yang = yang(int)
     this.tau = tau(int)
   }
+
   trine(num) {
     return trine(this.seniority, num)
   }
