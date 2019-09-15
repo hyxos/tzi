@@ -16,9 +16,7 @@ describe("duo", () => {
 
 describe("trines", () => {
   it("returns an array of all trines", () => {
-    for (let i = 1; i <= 60; i++) {
-      console.log(i, trines(i).length, trines(i))
-    }
+    expect(trines(4).length).toBe(10)
   }
   )
 })

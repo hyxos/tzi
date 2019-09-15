@@ -12,6 +12,9 @@ const {
   yin,
   yang,
   tau,
+  trines,
+  numberString,
+  isTrine
 } = require("./functions")
 
 const {
@@ -34,6 +37,7 @@ class Tzi {
   static get shuffle() { return shuffle(Tzi.range.map(i => new Tzi(i)) )}
   constructor(int) {
     this.name = name(int)
+    this.numberString = numberString(int)
     this.natural = int
     this.seniority = seniority(int)
     this.elementOrder = elementOrder(int)
@@ -46,10 +50,11 @@ class Tzi {
     this.yin = yin(int)
     this.yang = yang(int)
     this.tau = tau(int)
+    this.trines = trines(int)
   }
 
-  trine(num) {
-    return trine(this.seniority, num)
+  isTrine(tzi) {
+    return isTrine(this.trines, tzi)
   }
   square(int) {
     return int === this.order + 3 
