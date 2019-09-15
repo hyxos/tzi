@@ -14,7 +14,9 @@ const {
   tau,
   trines,
   numberString,
-  isTrine
+  isTrine,
+  squares, 
+  isSquare
 } = require("./functions")
 
 const {
@@ -51,17 +53,19 @@ class Tzi {
     this.yang = yang(int)
     this.tau = tau(int)
     this.trines = trines(int)
+    this.squares = squares(int)
   }
 
   isTrine(tzi) {
-    return isTrine(this.trines, tzi)
+    let n = tzi instanceof Tzi ? tzi.seniority : tzi
+    return isTrine(this.seniority, n)
   }
-  square(int) {
-    return int === this.order + 3 
-                      || int === this.order - 3 
-                      || int === this.opposite
-                      ? true : false
+
+  isSquare(tzi) {
+    let n = tzi instanceof Tzi ? tzi.seniority : tzi
+    return isSquare(this.seniority, n)
   }
+
   kind(int) {
     return int % 12 === this.order
   }

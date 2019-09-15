@@ -1,4 +1,4 @@
-const { polarity, trines, opposite, duo} = require("../functions")
+const { polarity, trines, isTrine, squares, isSquare, opposite, duo} = require("../functions")
 
 describe("polarity", () => {
   it("returns polarity 0 for evens and 1 for odds", () => {
@@ -15,8 +15,32 @@ describe("duo", () => {
 })
 
 describe("trines", () => {
-  it("returns an array of all trines", () => {
+  it("returns an array of all the trines for n", () => {
     expect(trines(4).length).toBe(10)
+  }
+  )
+})
+
+describe("isTrine", () => {
+  it("returns true if n is in trine, otherwise false", () => {
+    expect(isTrine(9, 13)).toBe(true)
+    expect(isTrine(1, 60)).toBe(false)
+  }
+  )
+})
+
+describe("squares", () => {
+  it("returns an array of all the squares for n", () => {
+    expect(squares(4).length).toBe(15)
+  }
+  )
+})
+
+describe("isSquare", () => {
+  it("returns true if n is in square, otherwise false", () => {
+    expect(isSquare(9, 13)).toBe(false)
+    expect(isSquare(1, 60)).toBe(false)
+    expect(isSquare(17, 11)).toBe(true)
   }
   )
 })
