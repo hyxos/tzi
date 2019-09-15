@@ -1,3 +1,3 @@
 const Tzi = require('./tzi')
 
-console.log(Tzi.deck)
+console.log(Tzi.shuffle)

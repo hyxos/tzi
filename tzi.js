@@ -21,12 +21,17 @@ const {
   Tau
 } = require("./constants")
 
+const {
+  shuffle
+} = require("./helpers")
+
 class Tzi {
   static get elements() { return elements }
   static get animals() { return animals }
   static get range() { return range }
   static get Tau() { return Tau }
   static get deck() { return Tzi.range.map(i => new Tzi(i)) }
+  static get shuffle() { return shuffle(Tzi.range.map(i => new Tzi(i)) )}
   constructor(int) {
     this.name = name(int)
     this.natural = int
