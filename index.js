@@ -1,5 +1,6 @@
 const Tzi = require('./tzi')
 
+
 let woodRat = new Tzi(1)
 console.log("name: ", woodRat.name)
 console.log("natural: ", woodRat.natural)
@@ -46,6 +47,9 @@ console.log("kind(4): ", metalRabbit.kind(4))
 console.log("kind(31): ", metalRabbit.kind(31))
 console.log("diversityTrine(56, 12): ", metalRabbit.diversityTrine(56, 12))
 console.log("diversitySquare(1, 10, 55): ", metalRabbit.diversityTrine(1, 10, 55))
+console.log("yin: ", metalRabbit.yin)
+console.log("yang: ", metalRabbit.yang)
 console.log(Tzi.elements)
 console.log(Tzi.animals)
+console.log(Tzi.range)
 

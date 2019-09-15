@@ -9,11 +9,15 @@ const { seniority,
         name,
         opposite, 
         duo,
-        trine} = require("./functions")
+        trine,
+        yin,
+        yang,
+        range} = require("./functions")
 
 class Tzi {
   static get elements() { return elements }
   static get animals() { return animals }
+  static get range() { return range }
   constructor(int) {
     this.natural = int
     this.seniority = seniority(int)
@@ -25,6 +29,8 @@ class Tzi {
     this.polarity = polarity(int)
     this.opposite = opposite(int)
     this.duo = duo(int)
+    this.yin = yin(int)
+    this.yang = yang(int)
   }
   trine(num) {
     return trine(this.seniority, num)
