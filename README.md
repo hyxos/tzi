@@ -3,8 +3,7 @@
 A library for working with TZI Objects.
 
 ```js
-import tzi from './tzi'
+import Tzi from './tzi'
 
 let woodRabbit = new Tzi(52)
 console.log(woodRabbit.name) // wood rabbit
-```

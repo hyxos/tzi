@@ -1,11 +1,10 @@
+const { elements, animals } = require('./constants')
 
 const mod = n => i => i % n
 const seniority = n => Math.abs(mod(60)(n))
 const elementOrder = n => Math.ceil(mod(10)(seniority(n)) / 2)
-const elements = ['wood', 'fire', 'earth', 'metal', 'water']
 const element = n => elements[elementOrder(n) - 1]
 const order = n => mod(12)(seniority(n))
-const animals = ['rat', 'ox', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'rooster', 'dog', 'pig']
 const animal = n => animals[order(n) - 1]
 const name = n => element(n) + " " + animal(n)
 const polarity = n => mod(2)(n)

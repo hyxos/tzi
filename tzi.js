@@ -11,7 +11,7 @@ const { seniority,
         duo,
         trine} = require("./functions")
 
-class tzi {
+class Tzi {
   static get elements() { return elements }
   static get animals() { return animals }
   constructor(int) {
@@ -39,8 +39,8 @@ class tzi {
     return int % 12 === this.order
   }
   diversityTrine(int1, int2) {
-    let tzi1 = new tzi(int1)
-    let tzi2 = new tzi(int2)
+    let tzi1 = new Tzi(int1)
+    let tzi2 = new Tzi(int2)
     return this.trine(tzi1.order) 
       && this.trine(tzi2.order)
       && tzi1.order !== tzi2.order
@@ -49,9 +49,9 @@ class tzi {
           && tzi1.element !== tzi2.element)
   }
   diversitySquare(int1, int2, int3) { 
-    let tzi1 = new tzi(int1)
-    let tzi2 = new tzi(int2)
-    let tzi3= new tzi(int3)
+    let tzi1 = new Tzi(int1)
+    let tzi2 = new Tzi(int2)
+    let tzi3= new Tzi(int3)
     return this.square(tzi1.order) 
       && this.square(tzi2.order) 
       && this.square(tzi3.order)
@@ -66,4 +66,4 @@ class tzi {
   }
 }
 
-module.exports = tzi
+module.exports = Tzi
