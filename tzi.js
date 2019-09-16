@@ -13,6 +13,7 @@ const {
   tau,
   trines,
   numberString,
+  fileString,
   isTrine,
   squares, 
   isSquare,
@@ -42,6 +43,7 @@ class Tzi {
   constructor(int) {
     this.name = name(int)
     this.numberString = numberString(int)
+    this.fileString = fileString(int)
     this.natural = int
     this.seniority = seniority(int)
     this.elementOrder = elementOrder(int)
@@ -58,9 +60,17 @@ class Tzi {
     this.squares = squares(int)
   }
 
+  cleanInput(input) {
+    return input instanceof Tzi ? input.seniority : input
+  }
+
   isTrine(tzi) {
-    let n = tzi instanceof Tzi ? tzi.seniority : tzi
-    return isTrine(this.seniority, n)
+    let n = this.cleanInput(tzi)
+    if (Array.isArray(n)) return n.reduce((p, i) => 
+                                    p === false 
+                                    ? false
+                                    : isTrine(this.seniority, this.cleanInput(i)))
+    else return isTrine(this.seniority, n)
   }
 
   isSquare(tzi) {

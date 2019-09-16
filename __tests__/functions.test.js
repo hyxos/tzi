@@ -5,7 +5,9 @@ const {
   element,
   animal,
   order,
+  name,
   numberString,
+  fileString,
   trines, 
   isTrine,
   squares,
@@ -66,6 +68,35 @@ describe("animal", () => {
   })
 })
 
+describe('name', () => {
+  it("returns proper element and animal string separated by space", () => {
+    expect(name(1)).toBe('wood rat')
+    expect(name(-11)).toBe('wood dog')
+    expect(name(60)).toBe('water pig')
+  })
+})
+
+describe('numberString', () => {
+  it("returns properly formatted number string for positives and negatives", () => {
+    expect(numberString(1)).toBe('01')
+    expect(numberString(-1)).toBe('N01')
+    expect(numberString(100)).toBe('40')
+    expect(numberString(-120)).toBe('N60')
+  })
+})
+
+describe('filesString', () => {
+  it("returns proper files string separated by underscores", () => {
+    expect(fileString(1)).toBe('01_wood_rat')
+    expect(fileString(-11)).toBe('N11_wood_dog')
+    expect(fileString(60)).toBe('60_water_pig')
+    expect(fileString(56)).toBe('56_earth_sheep')
+    expect(fileString(120)).toBe('60_water_pig_120')
+    expect(fileString(-130)).toBe('N10_water_rooster_130')
+  })
+})
+
+
 describe("order", () => {
   it("returns n mod 12 except for 12 returns 12", () => {
     expect(order(0)).toBe(12)
@@ -76,14 +107,14 @@ describe("order", () => {
   })   
 })
 
-describe('numberString', () => {
-  it("returns properly formatted number string for positives and negatives", () => {
-    expect(numberString(1)).toBe('01')
-    expect(numberString(-1)).toBe('-01')
-    expect(numberString(100)).toBe('40')
-    expect(numberString(-120)).toBe('-60')
+describe('opposite', () => {
+  it("returns opposite n defaults mod(60)", () => {
+    expect(opposite(1)).toBe(31)
+    expect(opposite(-5)).toBe(-35)
+    expect(opposite(1, 12)).toBe(7)
   })
 })
+
 
 describe("duo", () => {
   it("returns preceding n for evens and proceeding n for odds", () => {
@@ -112,6 +143,9 @@ describe("isTrine", () => {
     expect(isTrine(9, 13)).toBe(true)
     expect(isTrine(1, 60)).toBe(false)
     expect(isTrine(-2, 6)).toBe(true)
+    expect(isTrine(1, [])).toBe(false)
+    expect(isTrine(2, [6])).toBe(true)
+    expect(isTrine(2, [10])).toBe(true)
   }
   )
 })

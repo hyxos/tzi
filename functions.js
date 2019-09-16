@@ -3,12 +3,15 @@ const { rangeArray } = require('./helpers')
 const { abs, ceil, floor } = Math
 
 const mod = n => i => i % n
+
 const polarity = n => abs(mod(2)(n))
+
 const seniority = n => {
   let i = mod(60)(n)
   if (i !== 0) return i
   else return n >= 0 ? 60 : -60
 }
+
 const elementOrder = n => {
   let i = mod(10)(seniority(n))
   if (n >= 0 && i !==0) return ceil(i / 2)
@@ -18,6 +21,7 @@ const elementOrder = n => {
 }
 
 const element = n => elements[abs(elementOrder(n)) - 1]
+
 const order = n => {
   let i = mod(12)(seniority(n))
   if (i !== 0) return i
@@ -25,14 +29,30 @@ const order = n => {
 
 }
 const animal = n => animals[abs(order(n)) - 1]
+
 const name = n => element(n) + " " + animal(n)
+
 // const parseName
+
 const numberString = n => {
   let i = seniority(n)
   if (n > 0) return i < 10 ? "0" + String(i) : String(i)
-  else return i > -10 ? "-0" + String(abs(i)) : String(i)
+  else return i > -10 ? "N0" + String(abs(i)) : "N" + String(abs(i))
 }
-const opposite = (n, mod) => mod === 12 ? order(order(n) + 6) : seniority(n + 30)
+
+const fileString = n => {
+  if (n > 0 && n <= 60) return numberString(n) + "_" + element(n) + "_" + animal(n) 
+  else if (n < 0 && n >= -60) return numberString(n) + "_" + element(n) + "_" + animal(n)
+  else if (n > 60 || n < -60) return numberString(n) + "_" + element(n) + "_" + animal(n) + "_" + String(abs(n))
+}
+
+const opposite = (n, mod) => {
+  let c = n > 0
+  if (c) return mod === 12 ? order(order(n) + 6) : seniority(n + 30)
+  else return mod === 12 ? order(order(n) - 6) : seniority(n - 30)
+
+}
+
 const duo = n => {
   let p = polarity(n)
   let c = n > 0
@@ -59,10 +79,15 @@ const isSquare = (i, n) => {
 }
 
 const trines = n => rangeArray(1, 60).filter(i => isTrine(i, n))
+
 const squares = n => rangeArray(1, 60).filter(i => isSquare(i, n))
+
 const isKind = (i, n) => Math.abs(order(i)) === Math.abs(order(n))
+
 const yin = n => !Boolean(polarity(n))
+
 const yang = n => Boolean(polarity(n))
+
 const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0
 
 module.exports = {
@@ -84,5 +109,6 @@ module.exports = {
   isTrine: isTrine,
   squares: squares,
   isSquare: isSquare,
-  isKind: isKind
+  isKind: isKind,
+  fileString: fileString
 }
