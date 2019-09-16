@@ -36,7 +36,7 @@ class Tzi {
   static get animals() { return animals }
   static get range() { return range }
   static get Tau() { return Tau }
-  static get deck() { return Tzi.range.map(i => new Tzi(i)) }
+  static get deck() { return rangeArray(1,60).map(i => new Tzi(i)) }
   static get shuffle() { return shuffle(Tzi.range.map(i => new Tzi(i)) )}
   static get rangeArray() { return rangeArray }
   constructor(int) {
