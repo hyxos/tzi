@@ -28,6 +28,7 @@ const {
 
 const {
   shuffle,
+  rangeArray,
 } = require("./helpers")
 
 class Tzi {
@@ -37,6 +38,7 @@ class Tzi {
   static get Tau() { return Tau }
   static get deck() { return Tzi.range.map(i => new Tzi(i)) }
   static get shuffle() { return shuffle(Tzi.range.map(i => new Tzi(i)) )}
+  static get rangeArray() { return rangeArray }
   constructor(int) {
     this.name = name(int)
     this.numberString = numberString(int)
