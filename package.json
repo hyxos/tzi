@@ -10,7 +10,7 @@
   "version": "0.0.2",
   "description": "TZI Standard Library",
   "main": "index.js",
-  "repository": "git@github.com:hyxos/tzilib.git",
+  "repository": "git@github.com:hyxos/tzi.git",
   "author": "Donnie Hicks <dw@1hx.ca>",
   "license": "MIT"
 }
