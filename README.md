@@ -1,6 +1,6 @@
 # TZI Standard Libray
 
-A library for working with TZI Objects.
+A library for working with TZI Objects and functions.
 
 Install with `npm`
 
@@ -15,8 +15,22 @@ yarn add tzi
 fire up `node`
 
 ```js
-import Tzi from './tzi'
-
-let woodRabbit = new Tzi(52)
-console.log(woodRabbit.name) // wood rabbit
+> const { Tzi, z } = require('./tzi')
+undefined
+> let woodRabbit = new Tzi(52)
+undefined
+> woodRabbit.name
+'wood rabbit'
+> let woodRat = new Tzi(1)
+undefined
+> woodRabbit.isSquare(woodRat)
+true
+> woodRabbit.isKind(woodRat)
+false
+> woodRabbit.isUnity(woodRat)
+true
+> woodRabbit.isDiverse(woodRat)
+false
+> z.isSquare(52, 1)
+true
 ```
