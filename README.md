@@ -15,7 +15,7 @@ yarn add tzi
 fire up `node`
 
 ```js
-> const { Tzi, z } = require('./tzi')
+> const { Tzi, isSquare } = require('./tzi')
 undefined
 > let woodRabbit = new Tzi(52)
 undefined
@@ -31,6 +31,6 @@ false
 true
 > woodRabbit.isDiverse(woodRat)
 false
-> z.isSquare(52, 1)
+> isSquare(52, 1)
 true
 ```

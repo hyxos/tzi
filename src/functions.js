@@ -1,18 +1,18 @@
-const { elements, animals, Tau } = require('./constants')
-const { rangeArray } = require('./helpers')
+import { elements, animals, Tau } from './constants'
+import { rangeArray } from './helpers'
 const { abs, ceil, floor } = Math
 
-const mod = n => i => i % n
+export const mod = n => i => i % n
 
-const polarity = n => abs(mod(2)(n))
+export const polarity = n => abs(mod(2)(n))
 
-const seniority = n => {
+export const seniority = n => {
   let i = mod(60)(n)
   if (i !== 0) return i
   else return n >= 0 ? 60 : -60
 }
 
-const elementOrder = n => {
+export const elementOrder = n => {
   let i = mod(10)(seniority(n))
   if (n >= 0 && i !==0) return ceil(i / 2)
   else if (n >= 0 && i === 0) return 5
@@ -20,40 +20,40 @@ const elementOrder = n => {
   else return -5
 }
 
-const element = n => elements[abs(elementOrder(n)) - 1]
+export const element = n => elements[abs(elementOrder(n)) - 1]
 
-const order = n => {
+export const order = n => {
   let i = mod(12)(seniority(n))
   if (i !== 0) return i
   else return n >= 0 ? 12 : -12
 
 }
-const animal = n => animals[abs(order(n)) - 1]
+export const animal = n => animals[abs(order(n)) - 1]
 
-const name = n => element(n) + " " + animal(n)
+export const name = n => element(n) + " " + animal(n)
 
-// const parseName
+// export const parseName
 
-const numberString = n => {
+export const numberString = n => {
   let i = seniority(n)
   if (n > 0) return i < 10 ? "0" + String(i) : String(i)
   else return i > -10 ? "N0" + String(abs(i)) : "N" + String(abs(i))
 }
 
-const fileString = n => {
+export const fileString = n => {
   if (n > 0 && n <= 60) return numberString(n) + "_" + element(n) + "_" + animal(n) 
   else if (n < 0 && n >= -60) return numberString(n) + "_" + element(n) + "_" + animal(n)
   else if (n > 60 || n < -60) return numberString(n) + "_" + element(n) + "_" + animal(n) + "_" + String(abs(n))
 }
 
-const opposite = (n, mod) => {
+export const opposite = (n, mod) => {
   let c = n > 0
   if (c) return mod === 12 ? order(order(n) + 6) : seniority(n + 30)
   else return mod === 12 ? order(order(n) - 6) : seniority(n - 30)
 
 }
 
-const duo = n => {
+export const duo = n => {
   let p = polarity(n)
   let c = n > 0
   if (p && c) return seniority(n + 1)
@@ -62,7 +62,7 @@ const duo = n => {
   else return seniority(n - 1) 
 }
 
-const isTrine = (i, n) => {
+export const isTrine = (i, n) => {
   let iAbs = abs(order(i))
   let nAbs = abs(order(n))
   let prev = iAbs - 4 > 0 ? iAbs - 4 : iAbs + 8
@@ -70,7 +70,7 @@ const isTrine = (i, n) => {
   return nAbs === prev || nAbs === post
 }
 
-const isSquare = (i, n) => {
+export const isSquare = (i, n) => {
   let iAbs = abs(order(i))
   let nAbs = abs(order(n))
   let prev = iAbs - 3 > 0 ? iAbs - 3 : iAbs + 9
@@ -78,43 +78,18 @@ const isSquare = (i, n) => {
   return nAbs === prev || nAbs === post || nAbs === opposite(iAbs, 12)
 }
 
-const isUnity = (i, n) => elementOrder(i) === elementOrder(n)
+export const isUnity = (i, n) => elementOrder(i) === elementOrder(n)
 
-const isDiverse = (i, n) => elementOrder(i) !== elementOrder(n)
+export const isDiverse = (i, n) => elementOrder(i) !== elementOrder(n)
 
-const trines = n => rangeArray(1, 60).filter(i => isTrine(i, n))
+export const trines = n => rangeArray(1, 60).filter(i => isTrine(i, n))
 
-const squares = n => rangeArray(1, 60).filter(i => isSquare(i, n))
+export const squares = n => rangeArray(1, 60).filter(i => isSquare(i, n))
 
-const isKind = (i, n) => Math.abs(order(i)) === Math.abs(order(n))
+export const isKind = (i, n) => Math.abs(order(i)) === Math.abs(order(n))
 
-const yin = n => !Boolean(polarity(n))
+export const yin = n => !Boolean(polarity(n))
 
-const yang = n => Boolean(polarity(n))
+export const yang = n => Boolean(polarity(n))
 
-const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0
-
-module.exports = {
-  mod: mod,
-  seniority: seniority,
-  elementOrder: elementOrder,
-  element: element,
-  order: order,
-  animal: animal,
-  polarity: polarity,
-  opposite: opposite,
-  name: name,
-  duo: duo,
-  yin: yin,
-  yang: yang,
-  tau: tau,
-  trines: trines,
-  numberString: numberString,
-  isTrine: isTrine,
-  squares: squares,
-  isSquare: isSquare,
-  isKind: isKind,
-  isUnity: isUnity,
-  isDiverse: isDiverse,
-  fileString: fileString
-}
+export const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0

@@ -25,7 +25,6 @@ import {
 import  {
   animals,
   elements, 
-  range,
   Tau
 } from "./constants"
 
