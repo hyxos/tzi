@@ -1,6 +1,9 @@
 {
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "@babel/cli": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-jest": "^24.9.0"
   },
   "jest": {
     "verbose": true,
@@ -20,10 +23,5 @@
   "main": "lib/index.js",
   "repository": "git@github.com:hyxos/tzi.git",
   "author": "Donnie Hicks <dw@1hx.ca>",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "babel-jest": "^24.9.0"
-  }
+  "license": "MIT"
 }
