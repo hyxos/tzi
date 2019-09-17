@@ -78,6 +78,10 @@ const isSquare = (i, n) => {
   return nAbs === prev || nAbs === post || nAbs === opposite(iAbs, 12)
 }
 
+const isUnity = (i, n) => elementOrder(i) === elementOrder(n)
+
+const isDiverse = (i, n) => elementOrder(i) !== elementOrder(n)
+
 const trines = n => rangeArray(1, 60).filter(i => isTrine(i, n))
 
 const squares = n => rangeArray(1, 60).filter(i => isSquare(i, n))
@@ -110,5 +114,7 @@ module.exports = {
   squares: squares,
   isSquare: isSquare,
   isKind: isKind,
+  isUnity: isUnity,
+  isDiverse: isDiverse,
   fileString: fileString
 }

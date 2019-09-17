@@ -17,7 +17,7 @@ const {
   duo
 } = require("../functions")
 
-describe("polarity", () => {
+describe("polarity(n)", () => {
   it("returns polarity 0 for evens and 1 for odds", () => {
     expect(polarity(39)).toBe(1)
     expect(polarity(12)).toBe(0)
@@ -25,17 +25,18 @@ describe("polarity", () => {
   })   
 })
 
-describe("seniority", () => {
+describe("seniority(n)", () => {
   it("returns n mod 60 except for 60 returns 60", () => {
     expect(seniority(0)).toBe(60)
     expect(seniority(-60)).toBe(-60)
     expect(seniority(12)).toBe(12)
     expect(seniority(-45)).toBe(-45)
     expect(seniority(145)).toBe(25)
+    expect(seniority(-137)).toBe(-17)
   })   
 })
 
-describe("elementOrder", () => {
+describe("elementOrder(n)", () => {
   it("returns proper element order based on n", () => {
     expect(elementOrder(0)).toBe(5)
     expect(elementOrder(60)).toBe(5)
@@ -68,15 +69,15 @@ describe("animal", () => {
   })
 })
 
-describe('name', () => {
-  it("returns proper element and animal string separated by space", () => {
+describe('name(n)', () => {
+  it("returns proper element(n) + animal(n) string separated by space", () => {
     expect(name(1)).toBe('wood rat')
     expect(name(-11)).toBe('wood dog')
     expect(name(60)).toBe('water pig')
   })
 })
 
-describe('numberString', () => {
+describe('numberString(n)', () => {
   it("returns properly formatted number string for positives and negatives", () => {
     expect(numberString(1)).toBe('01')
     expect(numberString(-1)).toBe('N01')
@@ -127,6 +128,7 @@ describe("duo", () => {
 describe("trines", () => {
   it("returns an array of all the trines for n", () => {
     expect(trines(4).length).toBe(10)
+    expect(trines(4).includes(8)).toBe(true)
   }
   )
 })

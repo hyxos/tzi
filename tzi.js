@@ -17,7 +17,9 @@ const {
   isTrine,
   squares, 
   isSquare,
-  isKind
+  isKind,
+  isUnity,
+  isDiverse
 } = require("./functions")
 
 const {
@@ -38,8 +40,9 @@ class Tzi {
   static get range() { return range }
   static get Tau() { return Tau }
   static get deck() { return rangeArray(1,60).map(i => new Tzi(i)) }
-  static get shuffle() { return shuffle(Tzi.range.map(i => new Tzi(i)) )}
+  static get shuffle() { return shuffle(Tzi.rangeArray(1,60).map(i => new Tzi(i)) )}
   static get rangeArray() { return rangeArray }
+  static get deal() { return }
   constructor(int) {
     this.name = name(int)
     this.numberString = numberString(int)
@@ -81,6 +84,23 @@ class Tzi {
   isKind(tzi) {
     let n = tzi instanceof Tzi ? tzi.order : tzi
     return isKind(this.order, n)
+  }
+
+  isUnity(tzi) {
+    let n = this.cleanInput(tzi)
+    if (Array.isArray(n)) return n.reduce((p, i) => 
+                                    p === false 
+                                    ? false
+                                    : isUnity(this.seniority, this.cleanInput(i)))
+    else return isUnity(this.seniority, n)
+  }
+  isDiverse(tzi) {
+    let n = this.cleanInput(tzi)
+    if (Array.isArray(n)) return n.reduce((p, i) => 
+                                    p === false 
+                                    ? false
+                                    : isDiverse(this.seniority, this.cleanInput(i)))
+    else return isDiverse(this.seniority, n)
   }
 }
 

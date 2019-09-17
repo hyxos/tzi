@@ -2,7 +2,6 @@ const Tzi = require('../tzi')
 
 describe("new Tzi()", () => {
   it("creates a new instance of Tzi class", () => {
-    "a whole lot of nothing"
     expect(new Tzi(1)).toBeInstanceOf(Tzi)
   })   
 })
@@ -16,6 +15,9 @@ describe('n.isTrine(i)', () => {
     let woodMonkey = new Tzi(21)
     expect(woodRat.isTrine(woodMonkey)).toBe(true)
     expect(woodRat.isTrine([fireDragon, woodMonkey])).toBe(true)
+    expect(woodRat.isTrine([5, 9])).toBe(true)
+    expect(woodRat.isTrine([5, 9, 7])).toBe(false)
+    expect(woodRat.isTrine([5, woodMonkey])).toBe(true)
     let fireDog = new Tzi(23)
     expect(woodRat.isTrine(fireDog)).toBe(false)
     expect(woodRat.isTrine([fireDragon, fireDog])).toBe(false)
