@@ -1,9 +1,20 @@
 {
+  "name": "tzi",
+  "version": "0.1.1",
+  "description": "TZI Standard Library",
+  "main": "lib/index.js",
+  "repository": "git@github.com:hyxos/tzi.git",
+  "author": "Donnie Hicks <dw@1hx.ca>",
+  "license": "MIT",
   "devDependencies": {
-    "jest": "^24.9.0",
     "@babel/cli": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "babel-jest": "^24.9.0"
+    "babel-jest": "^24.9.0",
+    "cross-env": "^6.0.0",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   },
   "jest": {
     "verbose": true,
@@ -15,13 +26,10 @@
   "scripts": {
     "test": "jest",
     "start": "node lib/index.js",
-    "build:commonjs": "babel src --out-dir lib"
-  },
-  "name": "tzi",
-  "version": "0.1.1",
-  "description": "TZI Standard Library",
-  "main": "lib/index.js",
-  "repository": "git@github.com:hyxos/tzi.git",
-  "author": "Donnie Hicks <dw@1hx.ca>",
-  "license": "MIT"
+    "build": "npm run clean && npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "build:commonjs": "babel src --out-dir lib",
+    "build:umd": "cross-env FILE_NAME=tzi webpack",
+    "build:umd:min": "cross-env NODE_ENV=production npm run build:umd",
+    "clean": "rimraf lib dist"
+  }
 }
