@@ -94,7 +94,7 @@ const yang = n => Boolean(polarity(n))
 
 const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0
 
-const z = {
+module.exports = {
   mod: mod,
   seniority: seniority,
   elementOrder: elementOrder,
@@ -118,4 +118,3 @@ const z = {
   isDiverse: isDiverse,
   fileString: fileString
 }
-export default z

@@ -1,4 +1,4 @@
-const { 
+import { 
   polarity,
   seniority,
   elementOrder,
@@ -15,7 +15,7 @@ const {
   isKind,
   opposite,
   duo
-} = require("../functions")
+} from "../functions"
 
 describe("polarity(n)", () => {
   it("returns polarity 0 for evens and 1 for odds", () => {

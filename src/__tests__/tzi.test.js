@@ -1,4 +1,4 @@
-const Tzi = require('../tzi')
+import Tzi from '../tzi'
 
 describe("new Tzi()", () => {
   it("creates a new instance of Tzi class", () => {

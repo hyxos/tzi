@@ -1,4 +1,4 @@
-const { 
+import { 
   seniority, 
   elementOrder, 
   element,
@@ -20,21 +20,21 @@ const {
   isKind,
   isUnity,
   isDiverse
-} = require("./functions")
+} from "./functions"
 
-const {
+import  {
   animals,
   elements, 
   range,
   Tau
-} = require("./constants")
+} from "./constants"
 
-const {
+import {
   shuffle,
   rangeArray,
-} = require("./helpers")
+} from "./helpers"
 
-class Tzi {
+export class Tzi {
   static get elements() { return elements }
   static get animals() { return animals }
   static get range() { return range }
@@ -104,4 +104,4 @@ class Tzi {
   }
 }
 
-module.exports = Tzi
+export default Tzi
