@@ -4,7 +4,10 @@
   },
   "jest": {
     "verbose": true,
-    "testPathIgnorePatterns": ["/node_modules/", "lib/__tests__" ]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "lib/__tests__"
+    ]
   },
   "scripts": {
     "test": "jest",
@@ -12,7 +15,7 @@
     "build:commonjs": "babel src --out-dir lib"
   },
   "name": "tzi",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "TZI Standard Library",
   "main": "lib/index.js",
   "repository": "git@github.com:hyxos/tzi.git",
