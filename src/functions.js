@@ -32,6 +32,8 @@ export const animal = n => animals[abs(order(n)) - 1]
 
 export const name = n => element(n) + " " + animal(n)
 
+export const urlName = n => element(n) + "-" + animal(n)
+
 // export const parseName
 
 export const numberString = n => {

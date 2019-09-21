@@ -44,6 +44,7 @@ export class Tzi {
   static get deal() { return }
   constructor(int) {
     this.name = name(int)
+    this.urlName = urlName(int)
     this.numberString = numberString(int)
     this.fileString = fileString(int)
     this.natural = int
