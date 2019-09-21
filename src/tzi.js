@@ -6,6 +6,7 @@ import {
   animal,
   polarity,
   name,
+  urlName,
   opposite, 
   duo,
   yin,
