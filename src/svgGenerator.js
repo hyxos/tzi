@@ -67,7 +67,7 @@ const genDots = n => {
       dots += dc2r1 + '\n  ' + dc2r2
       break
     case 2:
-      dots += dc1r2 + '\n  ' + dc2r2
+      dots += dc1r1 + '\n  ' + dc2r1
       break
     case 4:
       dots += dc1r1 + '\n  ' + dc1r2
