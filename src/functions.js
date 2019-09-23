@@ -1,4 +1,4 @@
-import { elements, animals, Tau } from './constants'
+import { elements, animals, Tau, colors, hexColors } from './constants'
 import { rangeArray } from './helpers'
 const { abs, ceil, floor } = Math
 
@@ -21,6 +21,10 @@ export const elementOrder = n => {
 }
 
 export const element = n => elements[abs(elementOrder(n)) - 1]
+
+export const color = n => colors[abs(elementOrder(n)) - 1]
+
+export const hexColor = n => hexColors[abs(elementOrder(n)) - 1]
 
 export const order = n => {
   let i = mod(12)(seniority(n))
@@ -95,3 +99,18 @@ export const yin = n => !Boolean(polarity(n))
 export const yang = n => Boolean(polarity(n))
 
 export const tau = n => order(n) !== 12 ? (order(n) * Tau) / 12 : 0
+
+export const column = n => {
+  n = abs(order(n))
+  if (n === 1 || n === 4 || n === 7 || n === 10) return 1
+  else if (n === 2 || n === 5 || n === 8 || n === 11) return 3
+  else return 2
+}
+
+export const row = n => {
+  n = abs(order(n))
+  if (n === 1 || n === 5 || n === 9) return 1
+  else if (n === 2 || n === 6 || n === 10) return 2
+  else if (n === 3 || n === 7 || n === 11) return 3
+  else return 4
+}

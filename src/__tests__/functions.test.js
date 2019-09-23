@@ -14,7 +14,10 @@ import {
   isSquare,
   isKind,
   opposite,
-  duo
+  duo,
+  column,
+  row,
+  color
 } from "../functions"
 
 describe("polarity(n)", () => {
@@ -170,3 +173,32 @@ describe("isKind", () => {
   })
 })
 
+describe("column(n)", () => {
+  it("returns proper column for n", () => {
+    expect(column(1)).toBe(1)
+    expect(column(2)).toBe(3)
+    expect(column(8)).toBe(3)
+    expect(column(4)).toBe(1)
+    expect(column(12)).toBe(2)
+  })
+})
+
+describe("row(n)", () => {
+  it("returns proper row for n", () => {
+    expect(row(1)).toBe(1)
+    expect(row(2)).toBe(2)
+    expect(row(8)).toBe(4)
+    expect(row(4)).toBe(4)
+    expect(row(12)).toBe(4)
+    expect(row(7)).toBe(3)
+  })
+})
+
+describe("color(n)", () => {
+  it("returns proper color for n", () => {
+    expect(color(1)).toBe("green")
+    expect(color(56)).toBe("yellow")
+    expect(color(4)).toBe("red")
+    expect(color(57)).toBe("gray")
+  })
+})

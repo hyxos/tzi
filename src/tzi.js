@@ -20,7 +20,11 @@ import {
   isSquare,
   isKind,
   isUnity,
-  isDiverse
+  isDiverse,
+  column,
+  row,
+  color,
+  hexColor
 } from "./functions"
 
 import  {
@@ -28,6 +32,8 @@ import  {
   elements, 
   Tau
 } from "./constants"
+
+import { genGlyph } from './svgGenerator'
 
 import {
   shuffle,
@@ -62,6 +68,11 @@ export class Tzi {
     this.tau = tau(int)
     this.trines = trines(int)
     this.squares = squares(int)
+    this.column = column(int)
+    this.row = row(int)
+    this.color = color(int)
+    this.hexColor = hexColor(int)
+    this.glyph = genGlyph(int)
   }
 
   cleanInput(input) {

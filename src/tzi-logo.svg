@@ -1,0 +1,8 @@
+<svg id="tzi-logo" xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120" width="100" height="100">
+    <rect x="-60" y="-60" width="100%" height="100%" stroke="none" fill="none"/>
+    <rect x="-6" y="-60" rx="3" width="12" height="120" fill="#080808" transform="rotate(45, 0, 0)"/>
+    <rect x="-6" y="-50" rx="3" width="12" height="100" fill="#080808" />
+    <rect x="-18" y="-6" rx="3" width="36" height="12" fill="#080808" />
+    <rect x="-50" y="-46" rx="3" width="100" height="12" fill="#080808" />
+    <rect x="-50" y="34" rx="3" width="100" height="12" fill="#080808" />
+</svg>
