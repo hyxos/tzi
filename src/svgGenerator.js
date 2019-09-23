@@ -64,13 +64,13 @@ const genDots = n => {
   let dots = ''
   switch(e) {
     case 1:
-      dots += dc2r1 + '\n  ' + dc2r2
+      dots += dc1r1 + '\n  ' + dc1r2
       break
     case 2:
       dots += dc1r1 + '\n  ' + dc2r1
       break
     case 4:
-      dots += dc1r1 + '\n  ' + dc1r2
+      dots += dc2r1 + '\n  ' + dc2r2  
       break
     case 5:
       dots += dc1r2 + '\n  ' + dc2r2
