@@ -26,16 +26,31 @@ const svgWrapper =
   </g>
 </svg>`
 
-const vb1 = `<rect id="hb1"  x="-46" y="-50" rx="3" width="12" height="100" />`
-const vb2 = `<rect id="hb2"  x="-6" y="-50" rx="3" width="12" height="100" />`
-const vb3 = `<rect id="hb3" x="34" y="-50" rx="3" width="12" height="100" />`
-const hb1 = `<rect id="vb1" x="-50" y="-46" rx="3" width="100" height="12" />`
-const hb2 = `<rect id="vb2" x="-50" y="-6" rx="3" width="100" height="12" />`
-const hb3 = `<rect id="vb3" x="-50" y="34" rx="3" width="100" height="12" />`
-const dc1r1 = `<circle id="dc1r1" cx="-20" cy="-20" r="6" />`
-const dc2r1 = `<circle id="dc2r1" cx="20" cy="-20" r="6" />`
-const dc1r2 = `<circle id="dc1r2" cx="-20" cy="20" r="6" />`
-const dc2r2 = `<circle id="dc2r2" cx="20" cy="20" r="6" />`
+const bar = ({id, x, y, rx, w, h}) =>  
+  `<rect id="${id}" x="${x}" y="${y}" rx="${rx}" width="${w}" height="${h}" />`
+const bw = 14 // bar width
+const bh = 100 // bar height
+const rx = 4 // bar radius
+const ba = -50 // bar anchor
+const b1 = -45 // bar1 index
+const b2 = -7 // bar2 index
+const b3 = 31 // bar3 index
+const vb1 = bar({id: "vb1", x: b1, y: ba, rx, w: bw, h: bh })
+const vb2 = bar({id: "vb2", x: b2, y: ba, rx, w: bw, h: bh })
+const vb3 = bar({id: "vb3", x: b3, y: ba, rx, w: bw, h: bh })
+const hb1 = bar({id: "hb1", x: ba, y: b1, rx, w: bh, h: bw })
+const hb2 = bar({id: "hb2", x: ba, y: b2, rx, w: bh, h: bw })
+const hb3 = bar({id: "hb3", x: ba, y: b3, rx, w: bh, h: bw })
+
+const circle = ({id, cx, cy, r}) => 
+  `<circle id="${id}" cx="${cx}" cy="${cy}" r="${r}" />`
+const f = 19
+const r = 7
+
+const dc1r1 = circle({id: "dc1r1", cx: -f, cy: -f, r})
+const dc2r1 = circle({id: "dc2r1", cx: f, cy: -f, r})
+const dc1r2 = circle({id: "dc1r2", cx: -f, cy: f, r})
+const dc2r2 = circle({id: "dc2r2", cx: f, cy: f, r})
 
 const genbars = n => {
   let c = column(n)
