@@ -1,6 +1,6 @@
 {
   "name": "tzi",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "TZI Standard Library",
   "main": "lib/index.js",
   "repository": "git@github.com:hyxos/tzi.git",
