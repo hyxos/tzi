@@ -81,7 +81,7 @@ const genbars = n => {
   return bars
 }
 
-const genDots = n => {
+export const genDots = n => {
   let e = elementOrder(n)
   let dots = ''
   switch(e) {
@@ -115,6 +115,16 @@ export const genGlyph = n => {
     content: genbars(n) + '\n  ' + genDots(n),
     contentFill: hexColor(n),
     className
+  })
+}
+
+export const genGlyphTemplate = () => {
+  return svgWrapper({
+    id: "tzi-template",
+    content: genbars(8) + '\n  ' + genDots(1) + '\n  ' + genDots(8),
+    contentFill: "black",
+    className: "glyph",
+    dimensions: ["", ""]
   })
 }
 

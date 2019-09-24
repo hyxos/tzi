@@ -114,3 +114,5 @@ export const row = n => {
   else if (n === 3 || n === 7 || n === 11) return 3
   else return 4
 }
+
+export const grid = n => [column(n), row(n)]

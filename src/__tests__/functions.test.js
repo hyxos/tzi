@@ -17,7 +17,8 @@ import {
   duo,
   column,
   row,
-  color
+  color,
+  grid
 } from "../functions"
 
 describe("polarity(n)", () => {
@@ -200,5 +201,13 @@ describe("color(n)", () => {
     expect(color(56)).toBe("yellow")
     expect(color(4)).toBe("red")
     expect(color(57)).toBe("gray")
+  })
+})
+
+describe('grid(n)', () => {
+  it("returns proper grid position of n", () => {
+    expect(grid(1)).toMatchObject([1,1])
+    expect(grid(52)).toMatchObject([1,4])
+    expect(grid(56)).toMatchObject([3,4])
   })
 })

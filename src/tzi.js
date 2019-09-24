@@ -24,7 +24,8 @@ import {
   column,
   row,
   color,
-  hexColor
+  hexColor,
+  grid
 } from "./functions"
 
 import  {
@@ -73,6 +74,7 @@ export class Tzi {
     this.color = color(int)
     this.hexColor = hexColor(int)
     this.glyph = genGlyph(int)
+    this.grid = grid(int)
   }
 
   cleanInput(input) {
