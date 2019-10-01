@@ -129,13 +129,15 @@ export const genGlyphTemplate = () => {
 }
 
 export const logo = () =>
-`<svg id="tzi-logo" xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
-<rect x="-60" y="-60" width="100%" height="100%" stroke="none" fill="none"/>
-<rect x="-6" y="-60" rx="3" width="12" height="120" fill="#080808" transform="rotate(45, 0, 0)"/>
-<rect x="-6" y="-50" rx="3" width="12" height="100" fill="#080808" />
-<rect x="-18" y="-6" rx="3" width="36" height="12" fill="#080808" />
-<rect x="-50" y="-46" rx="3" width="100" height="12" fill="#080808" />
-<rect x="-50" y="34" rx="3" width="100" height="12" fill="#080808" />
+`<svg id="tzi-template" xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+<rect class="box" x="-60" y="-60" rx="6" width="100%" height="100%" stroke="none" stroke-width="1" fill="none"/>
+<g class="glyph" fill="black">
+    <rect id="db" x="-7" y="-55" rx="4" width="14" height="110" transform="rotate(45, 0, 0)"/>
+    <rect id="vb2" x="-7" y="-50" rx="4" width="14" height="100"/>
+    <rect id="hb1" x="-50" y="-45" rx="4" width="100" height="14"/>
+    <rect id="hb2" x="-21" y="-7" rx="4" width="42" height="14"/>
+    <rect id="hb3" x="-50" y="31" rx="4" width="100" height="14"/>
+</g>
 </svg>`
 
 export default genGlyph
