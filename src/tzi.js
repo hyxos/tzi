@@ -34,7 +34,7 @@ import  {
   Tau
 } from "./constants"
 
-import { genGlyph } from './svgGenerator'
+import { genGlyph, logo } from './svgGenerator'
 
 import {
   shuffle,
@@ -49,7 +49,7 @@ export class Tzi {
   static get deck() { return rangeArray(1,60).map(i => new Tzi(i)) }
   static get shuffle() { return shuffle(Tzi.rangeArray(1,60).map(i => new Tzi(i)) )}
   static get rangeArray() { return rangeArray }
-  static get deal() { return }
+  static get logo() { return logo() }
   constructor(int) {
     this.name = name(int)
     this.urlName = urlName(int)
