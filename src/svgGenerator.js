@@ -19,8 +19,8 @@ const svgWrapper =
   anchor=[-60, -60],
   className=""
 }) =>
-`<svg id="${id}" xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${dimensions[0]}" height="${dimensions[1]}">
-  <rect class="box" x="${anchor[0]}" y="${anchor[1]}" width="100%" height="100%" stroke="${stroke}" stroke-width="${strokeWidth}" fill="${boxFill}"/>
+`<svg id="${id}" xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">
+  <rect class="box" x="${anchor[0]}" y="${anchor[1]}" rx="6" width="100%" height="100%" stroke="${stroke}" stroke-width="${strokeWidth}" fill="${boxFill}"/>
   <g class="${className}" fill="${contentFill}">
     ${content}
   </g>
@@ -129,7 +129,7 @@ export const genGlyphTemplate = () => {
 }
 
 export const logo = () =>
-`<svg id="tzi-logo" xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120" width="100" height="100">
+`<svg id="tzi-logo" xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
 <rect x="-60" y="-60" width="100%" height="100%" stroke="none" fill="none"/>
 <rect x="-6" y="-60" rx="3" width="12" height="120" fill="#080808" transform="rotate(45, 0, 0)"/>
 <rect x="-6" y="-50" rx="3" width="12" height="100" fill="#080808" />
